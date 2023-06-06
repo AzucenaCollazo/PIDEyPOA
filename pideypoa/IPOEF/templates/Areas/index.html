@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block titulo %} Lista de Áreas {% endblock %}
+{% block contenido %}
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-success" href="{% url 'crearareas' %}" role="button">Agregar nueva área</a>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Áreas</h4>
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for areas in areas %}
+                    <tr>
+                        <td scope="row">{{areas.id}}</td>
+                        <td>{{areas.nombre}}</td>
+                        <td>
+                            <a name="" id="" class="btn btn-info" href="{% url 'editararea' areas.id %}" role="button">Editar</a>
+                            <a name="" id="" class="btn btn-danger" href="{% url 'eliminararea' areas.id %}" role="button">Borrar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    
+</div>
+{% endblock %}

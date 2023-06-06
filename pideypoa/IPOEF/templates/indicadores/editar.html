@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block titulo %} Editar indicador {% endblock %}
+{% block contenido %}
+<div class="card">
+    <div class="card-header">
+        Editar Información del Indicador
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos del Indicador</h4>
+        {% include 'indicadores/form1.html' %}
+    </div>
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+</div>
+{% endblock %}

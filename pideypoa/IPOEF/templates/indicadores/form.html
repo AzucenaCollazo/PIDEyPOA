@@ -1,0 +1,64 @@
+<form enctype="multipart/form-data" method="post">
+  {% csrf_token %} <!--Llave del formulario que le indica a django que le pertenece a esta aplicación-->
+  <!--{{ formulario.as_p }}-->
+  
+    <div class="col-md-6 offset-md-3">
+      
+      <h4 class="card-title">Datos del Indicador</h4>
+      <div class="form-group">
+        Nombre: <input type="text" class="form-control" name="nombre">
+      </div>
+      <div class="form-group mb-4">
+        <label for="id_estrategia">Estrategias</label>
+        <select name="estrategia" class="form-control" id="id_estrategia">
+          <option value="">Selecciona una estrategia...</option>
+          {% for dato in estrategia %}
+              <option value="{{ dato.id }}">{{ dato.nombre }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group mb-4">
+        <label for="id_programa">Programas</label>
+        <select name="programa" class="form-control" id="id_programa">
+          <option value="">Selecciona un programa...</option>
+          {% for dato in programa %}
+              <option value="{{ dato.id }}">{{ dato.nombre }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group mb-4">
+        <label for="id_area">Áreas</label>
+        <select name="area" class="form-control" id="id_area">
+          <option value="">Selecciona un área...</option>
+          {% for dato in area %}
+              <option value="{{ dato.id }}">{{ dato.nombre }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        Resultado 2020: <input type="text" class="form-control" name="Resultado2020">
+      </div>
+      <div class="form-group mb-4">
+        Resultado 2021: <input type="text" class="form-control" name="Resultado2021">
+      </div>
+      <div class="form-group">
+        Resultado 2022: <input type="text" class="form-control" name="Resultado2022">
+      </div>
+      <div class="form-group mb-4">
+        SED2023: <input type="text" class="form-control" name="SED2023">
+      </div>
+      <div class="form-group">
+        PIDE2023: <input type="text" class="form-control" name="PIDE2023">
+      </div>
+      <div class="form-group mb-4">
+        POADGUTyP2023: <input type="text" class="form-control" name="POADGUTyP2023">
+      </div>
+    
+      <input class="btn btn-success" type="submit" value="Enviar Datos">
+      <a class="btn btn-primary" href="{% url 'indicadores' %}" role="button">Cancelar</a>
+    </div>
+  </div>
+
+  
+
+</form>

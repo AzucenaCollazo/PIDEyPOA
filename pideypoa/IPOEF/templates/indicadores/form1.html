@@ -1,0 +1,19 @@
+<form enctype="multipart/form-data" method="post">
+  {% csrf_token %} <!--Llave del formulario que le indica a django que le pertenece a esta aplicación-->
+  {{form.as_p }}
+
+    <div class="form-group mb-4">
+      <label for="id"></label>
+          {% for estrategia in estrategiass %}
+          {% if estrategia.id == indicadores.estrategia.id %}
+          <option value="{{ estrategia.id }}" selected>{{ estrategia.nombre }}</option>
+          {% else %}
+          <option value="{{ estrategia.id }}">{{ estrategia.nombre }}</option>
+          {% endif %}
+          {% endfor %}
+  </div>
+  
+  <input name="" id="" class="btn btn-success" type="submit" value="Enviar Datos">
+  <a name="" id="" class="btn btn-primary" href="{% url 'indicadores' %}" role="button">Cancelar</a>
+
+</form>

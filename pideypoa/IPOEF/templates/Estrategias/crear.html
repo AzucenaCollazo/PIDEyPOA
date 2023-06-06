@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block titulo %} Agregar nueva estrategia {% endblock %}
+{% block contenido %}
+<div class="card">
+    <div class="card-header">
+        Crear una estrategia
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos de la estrategia</h4>
+        {% include 'estrategias/form.html' %}
+    </div>
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block titulo %} Lista de Indicadores {% endblock %}
+{% block contenido %}
+<div class="card">
+    <div class="card-header">
+        {% block buscador %}
+        <form class="form-inline my-2 my-lg-0" method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+                <input type="text" class="form-control mr-sm-2" type="search" placeholder="Buscar..." name="buscar" value="{{ request.POST.buscar }}">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i>  Buscar</button>
+            </div>
+        </form>
+        {% endblock buscador %}
+    </div>
+    <div class="card-body">
+        <center><h4 class="card-title">Indicadores</h4></center>
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Estrategia</th>
+                        <th scope="col">Programa</th>
+                        <th scope="col">Area</th>
+                        <th scope="col">Resultado 2020</th>
+                        <th scope="col">Resultado 2021</th>
+                        <th scope="col">Resultado 2022</th>
+                        <th scope="col">SED2023</th>
+                        <th scope="col">PIDE2023</th>
+                        <th scope="col">POADGUTyP2023</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for indicadores in indicadores %}
+                        <tr>
+                            <td scope="row">{{indicadores.id}}</td>
+                            <td>{{indicadores.nombre}}</td>
+                            <td>{{indicadores.estrategia}}</td>
+                            <td>{{indicadores.programa}}</td>
+                            <td>{{indicadores.area}}</td>
+                            <td>{{indicadores.Resultado2020}}</td>
+                            <td>{{indicadores.Resultado2021}}</td>
+                            <td>{{indicadores.Resultado2022}}</td>
+                            <td>{{indicadores.SED2023}}</td>
+                            <td>{{indicadores.PIDE2023}}</td>
+                            <td>{{indicadores.POADGUTyP2023}}</td>
+                            <td>
+                                <a name="" id="" class="btn btn-info" href="{% url 'editarindicador' indicadores.id %}" role="button">Editar</a>
+                                <a name="" id="" class="btn btn-danger" href="{% url 'eliminarindicador' indicadores.id %}" role="button">Borrar</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    <div class="card-footer text-muted">
+        <center><a name="" id="" class="btn btn-success" href="{% url 'crearindicador' %}" role="button">Agregar nuevo indicador</a></center>   
+    </div>
+    
+</div>
+{% endblock %}

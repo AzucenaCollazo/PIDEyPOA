@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block titulo %} Lista de Programas {% endblock %}
+{% block contenido %}
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-success" href="{% url 'crearprograma' %}" role="button">Agregar nuevo programa</a>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Programas</h4>
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for programas in programas %}
+                    <tr>
+                        <td scope="row">{{programas.id}}</td>
+                        <td>{{programas.nombre}}</td>
+                        <td>
+                            <a name="" id="" class="btn btn-info" href="{% url 'editarprograma' programas.id %}" role="button">Editar</a>
+                            <a name="" id="" class="btn btn-danger" href="{% url 'eliminarprograma' programas.id %}" role="button">Borrar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    
+</div>
+{% endblock %}
