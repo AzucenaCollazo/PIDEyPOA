@@ -24,12 +24,8 @@
                         <th scope="col">Estrategia</th>
                         <th scope="col">Programa</th>
                         <th scope="col">Area</th>
-                        <th scope="col">Resultado 2020</th>
-                        <th scope="col">Resultado 2021</th>
-                        <th scope="col">Resultado 2022</th>
-                        <th scope="col">SED2023</th>
-                        <th scope="col">PIDE2023</th>
-                        <th scope="col">POADGUTyP2023</th>
+                        <th scope="col">Valor</th>
+                        <th scope="col">Año</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
@@ -41,12 +37,8 @@
                             <td>{{indicadores.estrategia}}</td>
                             <td>{{indicadores.programa}}</td>
                             <td>{{indicadores.area}}</td>
-                            <td>{{indicadores.Resultado2020}}</td>
-                            <td>{{indicadores.Resultado2021}}</td>
-                            <td>{{indicadores.Resultado2022}}</td>
-                            <td>{{indicadores.SED2023}}</td>
-                            <td>{{indicadores.PIDE2023}}</td>
-                            <td>{{indicadores.POADGUTyP2023}}</td>
+                            <td>{{indicadores.valor}}</td>
+                            <td>{{indicadores.año}}</td>
                             <td>
                                 <a name="" id="" class="btn btn-info" href="{% url 'editarindicador' indicadores.id %}" role="button">Editar</a>
                                 <a name="" id="" class="btn btn-danger" href="{% url 'eliminarindicador' indicadores.id %}" role="button">Borrar</a>
